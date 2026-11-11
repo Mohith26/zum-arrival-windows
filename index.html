@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arrival windows for the Zum app (concept)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-nav">
+  <img src="assets/zum-logo.svg" alt="Zum" class="logo">
+  <span class="nav-sep"></span>
+  <span class="nav-title">CMX Apps</span>
+  <span class="nav-crumb">Parents &amp; School Administrators</span>
+  <span class="nav-right"><span class="pill">Concept</span> Arrival windows</span>
+</header>
+
+<main class="stage">
+  <section class="side">
+    <div class="eyebrow">Tue, Nov 10, 2026 · Route 214 · Bayview Middle School</div>
+    <h1>Arrival windows</h1>
+    <p class="lede">Every ETA in the Zum app gets a calibrated range, a <b>be at the stop by</b> time for families, and a <b>late-to-bell</b> chance for schools. The range comes from conformal prediction on the ETA's own recent errors, so 9 in 10 arrivals land inside it.</p>
+
+    <div class="card scrub">
+      <div class="scrub-row"><span class="scrub-label">Morning playback</span><span class="scrub-time" id="scrub-time">7:44 AM</span></div>
+      <input type="range" id="scrub" min="0" max="100" step="1" aria-label="time of morning">
+      <div class="scrub-ticks"><span id="tick-a">7:11 AM</span><span>bus leaves yard</span><span id="tick-b">8:25 AM</span></div>
+    </div>
+
+    <div class="card calib">
+      <div class="calib-head"><b>Coverage by week</b><span>share of arrivals inside the shown range</span></div>
+      <div id="cov-chart"></div>
+      <div class="legend"><span><i class="lg win"></i>Arrival window (target 90%)</span><span><i class="lg band"></i>ETA ± 2 min</span><span><i class="lg st2"></i>One-time calibration</span></div>
+      <div class="stats" id="stats"></div>
+      <a href="#" id="method-link" class="method-link">How it works and what it doesn't do →</a>
+    </div>
+  </section>
+
+  <section class="phone-col">
+    <div class="phone-caption">Zum app · Ride details</div>
+    <div class="phone"><div class="notch"></div><div class="screen" id="parent"></div></div>
+  </section>
+
+  <section class="phone-col">
+    <div class="phone-caption">Zum School Administrators · Today's rides</div>
+    <div class="phone"><div class="notch"></div><div class="screen admin" id="admin"></div></div>
+  </section>
+</main>
+
+<footer class="foot">Unofficial concept demo by Mohith Gajjela. Not affiliated with Zum. Synthetic data: the district, routes, students and drivers are fictional. <a href="https://github.com/Mohith26/zum-arrival-windows">Source and method</a></footer>
+
+<div class="modal" id="modal" hidden>
+  <div class="modal-card">
+    <button class="modal-x" id="modal-x" aria-label="close">×</button>
+    <div id="modal-body"></div>
+  </div>
+</div>
+<script type="module" src="app.js"></script>
+</body>
+</html>
